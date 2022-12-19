@@ -1,3 +1,5 @@
+import { IProduct } from './models/product';
+import { products as data } from "./data/products";
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular Learniang app';
+  title = 'Angular Learniang app'
+
+  products: IProduct[] = data
 }
