@@ -20,7 +20,9 @@
 
     <p>{{ product.description }}</p>
 
-    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">{{ product.rating.rate }}</span></p>
+    <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">
+      {{ product.rating.rate | number:'1.2-4' }}
+    </span></p>
 
   </div>
 
