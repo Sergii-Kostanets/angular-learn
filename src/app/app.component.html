@@ -11,9 +11,6 @@
     [(ngModel)]="term"
   >
 
-  <!-- <app-product [product]="products[0]"></app-product>
-  <app-product [product]="products[1]"></app-product> -->
-
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
   <div *ngIf="products$ | async as products">
@@ -22,6 +19,8 @@
       [product]="product"
     ></app-product>
   </div>
+
+  <app-modal></app-modal>
 
 </div>
 
