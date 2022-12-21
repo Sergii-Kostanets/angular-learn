@@ -1,3 +1,7 @@
-<div class="h-[50px] flex justify-center items-center br-red-600 text-white">
+<div class="h-[50px] flex justify-center items-center br-red-600 text-white relative">
   {{ errorService.error$ | async }}
+
+  <button
+    class="absolute top-2 right-5 text-white"
+  >&times;</button>
 </div>
