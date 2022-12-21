@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
-import { delay, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
+import { catchError, delay, Observable, throwError } from 'rxjs';
 import { IProduct } from '../models/product';
 
 @Injectable({
@@ -12,12 +12,18 @@ export class ProductService {
   }
 
   getAll(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>('https://fakestoreapi.com/products', {
+    return this.http.get<IProduct[]>('https://fakestoreapi.com/products1', {
       params: new HttpParams({
-        fromObject: {limit: 15}
+        fromObject: {limit: 2}
       })
     }).pipe(
-      delay(2000)
+      delay(2000),
+      catchError(this.errorHandler)
     )
+  }
+
+  private errorHandler(error: HttpErrorResponse) {
+
+    return throwError(() => error.message)
   }
 }
