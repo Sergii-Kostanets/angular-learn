@@ -11,12 +11,10 @@ import { ProductService } from './services/products.service';
 })
 export class AppComponent implements OnInit {
   title = 'Angular Learniang app'
-
   // products: IProduct[] = []
-
   loading = false
-
   products$: Observable<IProduct[]>
+  term = ''
 
   constructor(private productsService: ProductService) {
   }
