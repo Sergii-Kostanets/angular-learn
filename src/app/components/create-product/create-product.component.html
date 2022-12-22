@@ -3,7 +3,17 @@
     type="text"
     class="border w-full py-2 px-4 mb-2"
     placeholder="Product name"
+    formControlName="title"
+    appFocus
     >
+
+    <p
+      class="text-red-600 font-medium mb-2 text-center"
+      *ngIf="title.errors?.minlength && title.touched"
+      >
+      Minimal lenght is 4 symbols. Now it is {{ title.value.length }}
+    </p>
+
   <button
     type="submit"
     class="py-2 px-4 bg-blue-600 text-white"
