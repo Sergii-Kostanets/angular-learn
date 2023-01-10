@@ -4,16 +4,6 @@ on:
     branches:
       - main
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: Print text
-        run: echo "Text"
-      - name: Print text2
-        run: echo "Text2"
   transition:
     name: Transition
     runs-on: ubuntu-latest
@@ -21,9 +11,17 @@ jobs:
       - name: Env
         uses: atlassian/gajira-login@master
         env:
-          JIRA_BASE_URL: https://kostanets.atlassian.net
-          JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
-          JIRA_API_TOKEN: $(JIRA_API_TOKEN)
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Print text
+        run: echo "Text"
+      - name: Print text2
+        run: echo "Text2"
+
       - name: Jira Ticket Transitioner Action
         uses: tuanddd/jira-automate-transition@v1.0.7-beta
         with:
