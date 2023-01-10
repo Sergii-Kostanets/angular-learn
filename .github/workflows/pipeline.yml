@@ -22,7 +22,7 @@ jobs:
         env:
           # cat: .env
           JIRA_BASE_URL: $(JIRA_BASE_URL)
-          # JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
+          JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
           JIRA_API_TOKEN: $(JIRA_API_TOKEN)
       - name: Transition
         uses: tuanddd/jira-automate-transition@v1.0.5
