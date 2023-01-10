@@ -13,7 +13,8 @@ jobs:
         uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
           state: ${{ job.status }}
+          environment: staging
+          issue: FTP-2, FTP-3 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
-          # jira-issue-id: FTP-2
