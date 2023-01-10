@@ -21,7 +21,7 @@ jobs:
       - name: Env
         uses: atlassian/gajira-login@master
         env:
-          JIRA_BASE_URL: https://kostanets.atlassian.net/
+          JIRA_BASE_URL: https://kostanets.atlassian.net
           JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
           JIRA_API_TOKEN: $(JIRA_API_TOKEN)
       - name: Jira Ticket Transitioner Action
