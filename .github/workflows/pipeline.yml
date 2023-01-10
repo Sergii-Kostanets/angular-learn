@@ -5,9 +5,9 @@ on:
     branches:
       - main
 
-env:
-  CLIENT_ID: h5MbgGG1Nb95HRxjM2jvDkwdR0Ox1465
-  CLIENT_SECRET: ATOAiuE5CGy0P7o0bKN73iyfhjuVGIABzvlTiBFSIX_q_PcUcwFeZu46oO-uOtguujx82B6CD062
+# env:
+  # CLIENT_ID: h5MbgGG1Nb95HRxjM2jvDkwdR0Ox1465
+  # CLIENT_SECRET: ATOAiuE5CGy0P7o0bKN73iyfhjuVGIABzvlTiBFSIX_q_PcUcwFeZu46oO-uOtguujx82B6CD062
   # CLOUD_INSTANCE_BASE_URL:
 
 jobs:
@@ -18,10 +18,16 @@ jobs:
 
       - uses: HighwayThree/jira-upload-build-info@master
         with:
-          client-id: '${{ secrets.CLIENT_ID }}'
-          client-secret: '${{ secrets.CLIENT_SECRET }}'
+          client-id: 'h5MbgGG1Nb95HRxjM2jvDkwdR0Ox1465'
+          # client-id: '${{ secrets.CLIENT_ID }}'
+          client-secret: 'ATOAiuE5CGy0P7o0bKN73iyfhjuVGIABzvlTiBFSIX_q_PcUcwFeZu46oO-uOtguujx82B6CD062'
+          # client-secret: '${{ secrets.CLIENT_SECRET }}'
           cloud-instance-base-url: '${{ secrets.CLOUD_INSTANCE_BASE_URL }}'
+          # cloud-instance-base-url: '${{ secrets.CLOUD_INSTANCE_BASE_URL }}'
           issue-keys: "${{ steps.jira_keys.outputs.jira-keys }}"
+
+
+
 
 
       - uses:
@@ -38,7 +44,6 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          # caching node_modules
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
