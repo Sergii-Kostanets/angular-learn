@@ -5,7 +5,7 @@ name: Jira Example
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Jira Example 2
+    name: Jira Example 3
     steps:
     - name: Jira connect
       uses: govcms-extras/github-action-jira-connect@main
