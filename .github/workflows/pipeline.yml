@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: atlassian/gajira-login@master
         env:
-          # cat: .env
+          cat: .env
           JIRA_BASE_URL: $(JIRA_BASE_URL)
           JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
           JIRA_API_TOKEN: $(JIRA_API_TOKEN)
