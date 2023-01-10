@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+env:
+  JIRA_BASE_URL: https://kostanets.atlassian.net/
 jobs:
   text:
     runs-on: ubuntu-latest
