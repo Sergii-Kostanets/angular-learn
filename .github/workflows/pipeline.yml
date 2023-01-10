@@ -13,7 +13,7 @@ jobs:
         uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
           state: ${{ job.status }}
-          jira_instance: companyname # Subdomain for Jira Cloud
+          jira_instance: kostanets # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
           # jira-issue-id: FTP-2
