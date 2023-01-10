@@ -10,3 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Print text
         run: echo "Text"
+      - name: Print text2
+        run: echo "Text2"
