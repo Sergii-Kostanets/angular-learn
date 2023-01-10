@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   test:
-    name: Transition
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,3 +14,18 @@ jobs:
         run: echo "Text"
       - name: Print text2
         run: echo "Text2"
+  transition:
+    name: transition
+    runs-on: ubuntu-latest
+    steps:
+      - name: Transition
+        uses: tuanddd/jira-automate-transition@v1.0.5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          column-to-move-to-when-review-requested: In Review
+          column-to-move-to-when-changes-requested: In Progress
+          column-to-move-to-when-merged: QA
+          jira-endpoint: https://kostanets.atlassian.net/
+          jira-account: sergiikostanets@gmail.com
+          jira-token: FQFCikwxVOkVAel3ghX2B06A
+          jira-issue-id: FTP-2
