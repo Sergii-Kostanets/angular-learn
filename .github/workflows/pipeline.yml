@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  CLIENT_ID: h5MbgGG1Nb95HRxjM2jvDkwdR0Ox1465
+  CLIENT_SECRET: ATOAiuE5CGy0P7o0bKN73iyfhjuVGIABzvlTiBFSIX_q_PcUcwFeZu46oO-uOtguujx82B6CD062
+  # CLOUD_INSTANCE_BASE_URL:
+
 jobs:
   ci:
     runs-on: ubuntu-latest
