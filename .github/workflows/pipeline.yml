@@ -1,21 +1,12 @@
 name: Pipeline
-
 on:
   push:
     branches:
       - main
-
 jobs:
-  testing:
+  text:
     runs-on: ubuntu-latest
-
     steps:
-
-      - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: |
-          npm ci
-
-      - name: Build
-        run: |
-          npm run build
+      - uses: actions/checkout@v2
+      - name: Print text
+        run: echo "Text"
