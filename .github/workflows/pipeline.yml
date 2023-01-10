@@ -8,25 +8,12 @@ jobs:
     name: Transition
     runs-on: ubuntu-latest
     steps:
-      - name: Env
-        uses: atlassian/gajira-login@master
-        env:
-          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
-          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
-          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: Print text
-        run: echo "Text"
-      - name: Print text2
-        run: echo "Text2"
-
-      - name: Jira Ticket Transitioner Action
-        uses: tuanddd/jira-automate-transition@v1.0.7-beta
+      - name: Jira Integration
+        if: ${{ always() }}
+        uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          column-to-move-to-when-review-requested: In Review
-          column-to-move-to-when-changes-requested: In Progress
-          column-to-move-to-when-merged: QA
+          state: ${{ job.status }}
+          jira_instance: companyname # Subdomain for Jira Cloud
+          client_id: ${{ secrets.JIRA_CLIENT_ID }}
+          client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
           jira-issue-id: FTP-2
