@@ -11,9 +11,6 @@ jobs:
 
     steps:
 
-      - name: Jira Upload Build Info
-        uses: HighwayThree/jira-upload-build-info@v0.1-alpha
-
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
