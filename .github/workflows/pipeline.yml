@@ -18,18 +18,17 @@ jobs:
     name: Transition
     runs-on: ubuntu-latest
     steps:
-      - uses: atlassian/gajira-login@master
+      - name: Env
+        uses: atlassian/gajira-login@master
         env:
-          # cat: .env
-          JIRA_BASE_URL: $(JIRA_BASE_URL)
-          # JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
+          JIRA_BASE_URL: https://kostanets.atlassian.net/
+          JIRA_USER_EMAIL: $(JIRA_USER_EMAIL)
           JIRA_API_TOKEN: $(JIRA_API_TOKEN)
-      - name: Transition
-        uses: tuanddd/jira-automate-transition@v1.0.5
+      - name: Jira Ticket Transitioner Action
+        uses: tuanddd/jira-automate-transition@v1.0.7-beta
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           column-to-move-to-when-review-requested: In Review
           column-to-move-to-when-changes-requested: In Progress
           column-to-move-to-when-merged: QA
-          jira-endpoint: https://kostanets.atlassian.net/
           jira-issue-id: FTP-2
