@@ -10,6 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - uses: HighwayThree/jira-upload-build-info@master
+        with:
+          client-id: '${{ secrets.CLIENT_ID }}'
+          client-secret: '${{ secrets.CLIENT_SECRET }}'
+          cloud-instance-base-url: '${{ secrets.CLOUD_INSTANCE_BASE_URL }}'
+          issue-keys: "${{ steps.jira_keys.outputs.jira-keys }}"
+
+
       - uses:
           actions/checkout@v2
 
