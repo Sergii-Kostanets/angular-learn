@@ -15,12 +15,13 @@ jobs:
       - name: Print text2
         run: echo "Text2"
   transition:
-    name: transition
+    name: Transition
     runs-on: ubuntu-latest
     steps:
       - uses: atlassian/gajira-login@master
         env:
-          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          cat: .env
+          JIRA_BASE_URL: $(JIRA_BASE_URL)
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
       - name: Transition
