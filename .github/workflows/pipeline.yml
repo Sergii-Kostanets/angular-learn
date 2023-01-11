@@ -9,29 +9,31 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      # - name: Install Dependencies
-      #   if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-      #   run: |
-      #     npm ci
-      # - name: Build
-      #   run: |
-      #     npm run build
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: Print text
-        run: echo "Text"
-
+# FAILURE
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+      - name: Build
+        run: |
+          npm run build
+# SUCCESS
+      # - name: Checkout
+      #   uses: actions/checkout@main
+      # - name: Print text
+      #   run: echo "Text"
+# FAILURE CASE
       - name: The job has failed
         if: ${{ failure() }}
         uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
           state: ${{ job.status }}
           environment: development
-          issue: FTP-4, FTP-5 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
+          issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
-
+# SUCCESS CASE
       - name: The job has succeeded
         if: ${{ success() }}
         uses: rohit-gohri/jira-ci-cd-integration@v0
