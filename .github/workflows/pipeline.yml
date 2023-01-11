@@ -29,8 +29,8 @@ jobs:
         with:
           state: failed
           # state: ${{ job.status }}
-          environment: development
-          issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
+          environment: unmapped
+          issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6, FTP-7 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
@@ -41,7 +41,7 @@ jobs:
         with:
           state: ${{ job.status }}
           environment: staging
-          issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
+          issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6, FTP-7 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
           client_id: ${{ secrets.JIRA_CLIENT_ID }}
           client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
