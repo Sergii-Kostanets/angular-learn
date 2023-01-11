@@ -27,7 +27,8 @@ jobs:
         if: ${{ failure() }}
         uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
-          state: ${{ job.status }}
+          state: failed
+          # state: ${{ job.status }}
           environment: development
           issue: FTP-1, FTP-2, FTP-3, FTP-4, FTP-5, FTP-6 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
