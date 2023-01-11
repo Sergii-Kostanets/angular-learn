@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 # FAILURE
-      - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: |
-          npm ci
-      - name: Build
-        run: |
-          npm run build
+      # - name: Install Dependencies
+      #   if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      #   run: |
+      #     npm ci
+      # - name: Build
+      #   run: |
+      #     npm run build
 # SUCCESS
-      # - name: Checkout
-      #   uses: actions/checkout@main
-      # - name: Print text
-      #   run: echo "Text"
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Print text
+        run: echo "Text"
 # FAILURE CASE
       - name: The job has failed
         if: ${{ failure() }}
