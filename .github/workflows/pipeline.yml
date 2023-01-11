@@ -34,13 +34,23 @@ jobs:
       - name: Build
         run: |
           npm run build
+      # CANCEL CASE
+      - name: The job has cancelled
+        if: ${{ cancelled() }}
+        uses: rohit-gohri/jira-ci-cd-integration@v0
+        with:
+          state: cancel
+          environment: unmapped
+          issue: FTP-10 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
+          jira_instance: kostanets # Subdomain for Jira Cloud
+          client_id: ${{ secrets.JIRA_CLIENT_ID }}
+          client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
       # FAILURE CASE
       - name: The job has failed
         if: ${{ failure() }}
         uses: rohit-gohri/jira-ci-cd-integration@v0
         with:
           state: failed
-          # state: ${{ job.status }}
           environment: development
           issue: FTP-10 # Comma separated list of issues being deployed/released. You are expected to generate this yourself in a previous step for releases
           jira_instance: kostanets # Subdomain for Jira Cloud
